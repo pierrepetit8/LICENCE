@@ -1,0 +1,108 @@
+package test;
+
+import static org.junit.Assert.*;
+
+
+import org.hamcrest.core.IsInstanceOf;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import testing.Convertion;
+import testing.Money;
+
+import static org.mockito.Mockito.*;
+public class MoneyTest {
+	Money m;
+	
+	
+	@Before 
+	public void setUp() {
+		MockitoAnnotations.initMocks(this);
+	}
+	@Mock Convertion conv; 
+	@InjectMocks private Money money;
+	
+	@Test 
+	public void testConv() {
+		when(conv.unit_Convertion("EUR-USD")).thenReturn(1.29);
+	}
+	
+	
+	
+	
+	
+	@Test
+	public void testContructor() {
+		Assert.assertThat(m, IsInstanceOf.instanceOf(Money.class));
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalAmount() {
+		m = new Money(0, "EUR");
+	}
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalCurrency() {
+		m = new Money(0, "hgj");
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorNullArg() {
+		m = new Money(0, null);
+	}
+	
+	@Test 
+	public void testGetAmount() {
+		int expected = 20;
+		m = new Money(20, "EUR");
+		Assert.assertEquals(expected, m.amount());
+	}
+	
+	@Test 
+	public void testGetCurrency() {
+		String expected = "EUR";
+		m = new Money(20, "EUR");
+		Assert.assertEquals(expected, m.currency());
+	}
+	
+	@Test 
+	public void testAmount() {
+		Assert.assertThat(m.amount(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test 
+	public void testCurrency() {
+		Assert.assertThat(m.currency(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testAddNull() {
+		int amount = 0; 
+		m = new Money(20, "EUR");
+		m.add(new Money(0, ""));
+	}
+	
+	@Test
+	public void testAdd() {
+		m = new Money(20, "EUR");
+		m.add(new Money(10, "EUR"));
+		Assert.assertEquals(30, m.amount());
+	}
+	
+	@Test
+	public void testAddDiffEURtoUSD() {
+		m = new Money(20, "EUR");
+		m.add(new Money(10, "USD"));
+		Assert.assertNotEquals(30, m.amount());
+	}
+	
+	@Test
+	public void testAddDiffUSDtoEUR() {
+		m = new Money(20, "EUR");
+		m.add(new Money(10, "USD"));
+		Assert.assertEquals(20 + 10 * 1.29, m.amount());
+	}
+}

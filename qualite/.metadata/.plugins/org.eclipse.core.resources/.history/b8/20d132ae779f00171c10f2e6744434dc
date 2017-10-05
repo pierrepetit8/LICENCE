@@ -1,0 +1,64 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.hamcrest.core.IsInstanceOf;
+import org.junit.Assert;
+import org.junit.Test;
+
+import testing.Money;
+
+public class MoneyTest {
+	Money m;
+	
+	@Test
+	public void testContructor() {
+		Assert.assertThat(m, IsInstanceOf.instanceOf(Money.class));
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalAmount() {
+		m = new Money(0, "EUR");
+	}
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalCurrency() {
+		m = new Money(0, "hgj");
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorNullArg() {
+		m = new Money(0, null);
+	}
+	
+	@Test 
+	public void testGetAmount() {
+		int expected = 20;
+		m = new Money(20, "EUR");
+		Assert.assertEquals(expected, m.amount());
+	}
+	
+	@Test 
+	public void testGetCurrency() {
+		String expected = "EUR";
+		m = new Money(20, "EUR");
+		Assert.assertEquals(expected, m.currency());
+	}
+	
+	@Test 
+	public void testAmount() {
+		Assert.assertThat(m.amount(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test 
+	public void testCurrency() {
+		Assert.assertThat(m.currency(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testAddNull() {
+		int amount = 0; 
+		m = new Money(20, "EUR");
+		m.add(new Money(0, ""));
+		
+	}
+}

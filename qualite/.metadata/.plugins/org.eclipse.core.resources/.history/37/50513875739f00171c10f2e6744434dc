@@ -1,0 +1,38 @@
+package testing;
+
+import java.util.ArrayList;
+
+public class Money {
+	private int amount ;
+	private String curr ;
+
+	private List<String> list = new ArrayList<>() {
+		
+	};
+	public Money( int amount , String currency ) throws IllegalArgumentException {
+		if(amount == 0 || amount < 0) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			this.amount = amount;
+			this.curr = currency;
+		}
+		
+	}
+
+	public int amount ( ) {
+		return amount;
+	}
+
+	public String currency ( ) {
+		return curr;
+	}
+
+	public void add (Money m) {
+		
+	}
+
+	public void add (int namount , String ncurrency ) throws IllegalArgumentException {
+		
+	}
+}

@@ -1,0 +1,26 @@
+package testing;
+
+public class Money {
+	private int amount ;
+	private String curr ;
+
+
+	public Money( int amount , String currency ) {
+		this.amount = amount;
+		this.curr = currency;
+	}
+
+	public int amount ( ) {
+		return amount;
+	}
+
+	public String currency ( ) {
+		return curr;
+	}
+
+	public void add (Money m) {
+		
+	}
+
+	//public void add (int namount , String ncurrency ); 
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title></title>
+
+  
+
+  
+  
+  <meta name="Author" content="">
+
+  
+  <meta name="GENERATOR" content="Mozilla/3.03Gold (Win16; I) [Netscape]"></head><body>
+<b>TP cycle de vie des applications</b><br>
+
+S. Salva<br>
+
+<br>
+
+<div align="center">
+<table cellspacing="2" cellpadding="2" border="1">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <h1 align="center"><font color="#800040">TP3 Tests Unitaires</font></h1>
+      <font color="#800040"> </font></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><font color="#990000"><br>
+</font></p>
+
+<h2><font color="#990000">1. Objectifs</font>
+</h2>
+
+<p>Savoir développer des tests unitaires<br>
+Effectuer la couverture de test d'une application<br>
+Utiliser Infinitest<br>
+Unitiliser Mockito<br>
+</p>
+
+<p><br>
+</p>
+
+<h2><font color="#990000">2. <br>
+</font></h2>
+
+<br>
+
+L'objectif est d'implanter une classe Money ayant pour paramètres <span style="font-style: italic;">amount</span> et&nbsp; <span style="font-style: italic;">curr</span> représentant un montant et une
+devise respectivement. <br>
+
+La devise s’exprime comme une chaîne de trois caractères définie par la
+norme ISO (ici, seulement EUR (euro), USD (<br>
+
+$), CHF (franc suisse), GBP (livre sterling)).
+<p>Quand on additionne deux Money de même devise, le résultat a pour
+montant la somme des deux autres montants. Mais si les devises sont
+différentes alors il faut convertir. La structure de la classe est la
+suivante:</p>
+
+<p><span style="font-style: italic;">class Money {</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">private int amount ;</span><br style="font-style: italic;">
+<span style="font-style: italic;">private String curr ;</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">public Money( int amount , String
+currency );</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">public int amount ( ) ;</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">public String currency ( );</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">public void add (Money m);</span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">public void add (int namount ,
+String ncurrency ); </span><br style="font-style: italic;">
+<br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+</p>
+
+<p> Dans la suite , il vous ai demandé de coder des tests avec assertions par contrats.</p>
+
+
+<font color="#990000"> A </font><br>
+
+<p>En partant de la structure ci-dessus, écrire une classe MoneyTest
+qui teste si Money est correcte (pour chaque méthode, un cas de test
+est demandé). </p>
+
+<p>Réfléchissez bien et donnez tous les scénarios possibles afin d'élaborer
+tous vos tests. De même, n'oubliez pas la fixture.<br>
+Nous nous limiterons aux devises EUR, USD (1 EUR = 1.29 USD au moment de l'écriture du sujet).
+<br>
+<br>
+Ecrivez chaque cas de test, puis chaque méthode de la classe Money&nbsp; de
+façon incrémentale (l'une après l'autre, petit à petit donc en TDD). En fin de code,&nbsp; la classe Money<br>
+implantant l’en-tête donnée doit également passer tous vos tests.<br>
+</p>
+
+<p>Si vous trouvez barbant de relancer vos tests à la main, vous pouvez installer <a href="http://infinitest.github.io/">Infinitest</a> (Install new software et donner l'URL <i>http://infinitest.github.io</i></p>
+
+<p>Infinitest recherche les tests dans un projet et les lance
+automatiquement au moindre changement (vous avez une barre en bas à
+gauche). Si un cas de test est FAIL, vous pouvez également obtenir la
+cause dans le code en cliquant sur l'erreur.</p>
+
+<h2><font color="#990000">3. Ne vous Mocker pas ! (Mockito)</font></h2>
+
+<p>Il est fort probable que vous ayez effectué les convertions
+euro-dollard dans le code avec l'unité de convertion (1 EUR = 1.29
+USD). Pour faire mieux, il plus interessant d'utiliser une Classe
+composée.</p> 
+<p>Soit donc la Classe <i>Convertion</i> qui prends une méthode <i>Float unit_Convertion (String s)</i> avec <i>s</i> une chaine de convertion "EUR-USD", "USD_EUR" dans notre cas.</p>
+
+<p>Nous ne souhaitons pas coder cette Classe de suite. Il est important
+d'isoler la classe Money pour ne tester que cette classe et pas une
+classe Convertion "codée à l'arrache". Nous allons donc mettre en place
+un stub (simulation) de cette classe Convertion grâce à Mockito</p> 
+
+
+
+<p><font color="#990000">A </font></p>
+
+<p>Téléchargez la librairie de Mockito <a href="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mockito/mockito-1.9.5.zip">ici</a> et ajoutez la à votre projet. Doc <a href="http://site.mockito.org/mockito/docs/current/index.html?org/mockito/Mockito.html">ICI</a><br>
+</p>
+
+<p>Ajoutez <i>MockitoAnnotations.initMocks(this);</i> dans la méthode SetUp()<br>
+et faites l'import: import static org.mockito.Mockito.*;</p>
+
+<p>Ajoutez la déclaration:<br>
+<i>@Mock
+Convertion conv;</i> et <i>@InjectMocks private Money money;</i> pour indiquer que le mock est injecté dans la Classe Money.</p>
+
+<p>Créez une classe Convertion vide:<br>
+<i>
+public class Convertion {<br>
+
+	public double unit_Convertion(String s) {return 0.0;}<br>
+	
+	
+}</i><br>
+
+</p><p>Ajoutez l'attribut Convertion dans la classe Money et modifiez
+son code pour utiliser cet attribut. Pour l'instant le Mock se comporte
+en renvoyant null. bof bof. En ce moment même, vous faites de la
+non-régression ! Vous testez le fonctionnement du code que vous avez
+fait via vos tests.</p>
+
+<p><font color="#990000">B </font></p>
+<p>Ajoutons du comportement. On va indiquer à Mockito quelle valeur on
+souhaite retourner lorsque la méthode unit_Convertion est invoquée.</p>
+
+<p>un exemple: when(conv.unit_Convertion("EUR-USD").thenReturn("1.29");</p>
+
+<p>Faites de même dans tous les cas du sujet. Où placer ce code ?</p>
+
+<p><font color="#990000">C </font></p>
+Ajoutez dans le Mock que si vous recevez un argument commençant par " " dans la méthode <i>unit_Convertion</i> alors vous renvoyez l'Exception <i>IllegalArgumentException</i>
+
+
+<p><font color="#990000">D </font></p>
+
+<p>Ajoutez la méthode <i>sub</i> en commençant par créer les tests.</p>
+<p><br>
+</p>
+
+<p>Stockez la classe <i>Money</i></p>
+
+
+<h2><font color="#990000">4. Robustesse</font></h2>
+
+
+<p>Il semble logique que les montants ne doivent pas être négatifs.
+Cela fait parti des tests de robustesse. De même, on ne veut pas de
+devise nulle ou farfelue.<br>
+</p>
+
+
+<p><font color="#990000">A </font></p>
+
+<p>Créez deux nouvelles classes de cas de test afin de tester ces points. Combien faut-il de cas de test par classe ?</p>
+
+
+<p><font color="#990000">B </font></p>
+
+<p>Modifiez le code de la classe <i>Money</i> pour que vos tests passent.</p>
+<p><br>
+</p>
+
+
+<h2><font color="#990000">5. Couverture de code</font></h2>
+
+<br>
+
+<p><font color="#990000">A </font></p>
+
+<p>Donnez la couverture de code obtenue avec Emma dans les questions 2 et 3. Y a t-il une différence?</p>
+
+
+<p><font color="#990000">B </font></p>
+
+<p>Complétez le code de Money et /ou les cas de test (en précisant les modifications) pour obtenir une couverture de 100%</p>
+
+
+
+
+
+<br>
+
+
+
+
+<br>
+</body></html>

@@ -1,0 +1,54 @@
+package testing;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+
+public class Money {
+	private int amount ;
+	private String curr ;
+
+	private List<String> list = new ArrayList();
+	private HashMap<String, Float> devises = new HashMap<>();
+	
+	public Money( int amount , String currency ) throws IllegalArgumentException {
+		list.add("EUR");
+		list.add("USD");
+		list.add("CHF");
+		
+		devises.put("USD", 0.834314f);
+		devises.put("CHF", 0.861651f);
+
+		
+		if(amount == 0 || amount < 0 || !list.contains(currency) || currency == null) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			this.amount = amount;
+			this.curr = currency;
+		}
+		
+	}
+
+	public int amount ( ) {
+		return amount;
+	}
+
+	public String currency ( ) {
+		return curr;
+	}
+
+	public void add (Money m) throws IllegalArgumentException{
+		if (m == null) throw new IllegalArgumentException();
+		
+		if (!curr.equals(m.currency()))
+			add(m.amount, m.curr);
+		else
+			amount += m.amount;
+	}
+
+	public void add (int namount , String ncurrency ) throws IllegalArgumentException {
+		
+	}
+}

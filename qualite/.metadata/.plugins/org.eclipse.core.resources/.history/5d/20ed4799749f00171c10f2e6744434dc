@@ -1,0 +1,42 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.hamcrest.core.IsInstanceOf;
+import org.junit.Assert;
+import org.junit.Test;
+
+import testing.Money;
+
+public class MoneyTest {
+	Money m;
+	@Test
+	public void testContructor() {
+		Assert.assertThat(m, IsInstanceOf.instanceOf(Money.class));
+	}
+	
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalAmount() {
+		m = new Money(0, "EUR");
+	}
+	@Test (expected=java.lang.IllegalArgumentException.class)
+	public void testContructorIllegalCurrency() {
+		m = new Money(0, "hgj");
+	}
+	
+	@Test 
+	public void testAmount() {
+		Assert.assertThat(m.amount(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test 
+	public void testCurrency() {
+		Assert.assertThat(m.currency(), IsInstanceOf.instanceOf(Integer.class));
+	}
+	
+	@Test 
+	public void testAdd() {
+		int amount = 0; 
+		
+	}
+}
