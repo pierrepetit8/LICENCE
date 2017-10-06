@@ -123,8 +123,7 @@ public class MaFenetreController {
         double r = Double.valueOf(field1.getText());
         double v = Double.valueOf(field1.getText());
         double b = Double.valueOf(field1.getText());
-        System.out.println(r+""+v+""+b); 
-       Couleur c = FabriqueCouleur.creerCouleur(r, v, b);
+        Couleur c = FabriqueCouleur.creerCouleur(r, v, b);
         CouleurVM cvm = FabriqueCouleurVM.creerCouleurVM(c);
         //listViewArc.getSelectionModel().selectedItemProperty().getValue().ajouterCouleur(cvm);
         listViewArc.getSelectionModel().getSelectedItems().get(0).ajouterCouleur(cvm);

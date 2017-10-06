@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hina/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/~sesalva/SDTA-2014/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>logo</td>
+	<td>1st Symposium on Digital Trust in Auvergne</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div/a/img/</td>
+	<td>images/logo-limos.gif</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/~sesalva/SDTA-2014/index.php?page=cfp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Security Policies</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/~sesalva/SDTA-2014/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//body</td>
+	<td>*include*</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/~sesalva/SDTA-2014/index.php?page=cfp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/~sesalva/SDTA-2014/index.php?page=registration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>document.forms[0].elements[1]</td>
+	<td>pierre </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>document.forms[0].elements[2]</td>
+	<td>petit</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>pierre@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=affiliation</td>
+	<td>cool</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=payertitle</td>
+	<td>label=Other</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=payernom</td>
+	<td>pierre</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=payeraddress</td>
+	<td>operoe rue 18djios</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=payerzipcode</td>
+	<td>63000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=payercity</td>
+	<td>bourges</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=repas[]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=restrictions</td>
+	<td>COUCOU<br />VEGANNNNN</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=gala</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=login</td>
+	<td>licence</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=mdp</td>
+	<td>licence</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>name=nom</td>
+	<td>${test}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title></title>
+
+  
+  
+  <meta name="Author" content="">
+
+  
+  <meta name="GENERATOR" content="Mozilla/3.03Gold (Win16; I) [Netscape]">
+
+</head><body>
+<b>TP cycle de vie des applications</b><br>
+
+S. Salva<br>
+
+<br>
+
+<div align="center">
+<table cellspacing="2" cellpadding="2" border="1">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <h1 align="center"><font color="#800040">TP4 Tests Unitaires en
+PHP<br>
+      </font></h1>
+      <font color="#800040"> </font></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><font color="#990000"><br>
+</font></p>
+
+<h2><font color="#990000">1. Objectifs</font>
+</h2>
+
+<p>Savoir développer des tests unitaires en php<br>
+Effectuer la couverture de test d'une application<br>
+</p>
+
+<p><br>
+</p>
+
+<h2><font color="#990000">2. Organisation et première utilisation<br>
+</font></h2>
+
+Dans ce TP, PHPUnit sera employé en ligne de commande (ce qui est fait
+généralement, certains utilisent également Netbeans).<br>
+
+Pour le projet "exo1", nous avons l'arborescence classique suivante:<br>
+
+exo1<br>
+
+—tests<br>
+
+—src<br>
+
+<br>
+
+Pour chaque classe de nom "Class" nous avons un fichier ClassTest dans
+le répertoire tests.<br>
+
+<span style="font-weight: bold;">Pour ce TP, il est obligatoire d'avoir
+la documentation de PHPUnit ouverte ! </span>(<a href="http://phpunit.de/manual/current/en/index.html">disponible ici</a>).<br>
+
+<br>
+
+<font color="#990000"> A <font color="#000040"><br>
+</font></font>
+<p><font color="#990000"><font color="#000040">Récupérez la classe <a href="http://hina/%7Esesalva/qualite/TP4/files/files.zip">Personne.php</a>. et le test unitaire <a href="http://hina/%7Esesalva/qualite/TP4/files/PersonneTest.php">PersonneTest.php</a>. Faites un projet
+exo1 et organisez le.<br>
+</font></font></p>
+
+<p><font color="#990000"><font color="#000040">Phpunit diffère peu de
+Junit, on a des annotations, du code, des assertions. Ici, le cas de
+test hérite de PHPUnit_Framework_TestCase. Au mieux, il n'y a qu'une
+assertion par méthode. La liste des assertions possible est ici : </font></font><a href="http://phpunit.de/manual/current/en/appendixes.assertions.html">assertions</a>.</p>
+
+<p>Pour installer Phpunit, faites:</p>
+
+<p><span style="font-style: italic;">wget
+https://phar.phpunit.de/phpunit.phar</span><br style="font-style: italic;">
+<span style="font-style: italic;">chmod +x phpunit.phar</span><br style="font-style: italic;">
+<br>
+<span style="font-style: italic;">mv phpunit.phar /*compte
+personnel*/php/phpunit</span><br>
+<span style="font-style: italic;">Ajoutez /*compte personnel*/php/ à
+votre variable d'environnement $PATH (ajoutez en fin de fichier
+.bashrc, export PATH=$PATH:</span><span style="font-style: italic;">/*compte
+personnel*/php/ dans votre
+fichier .bashrc)<br>
+</span></p>
+
+<p><br>
+Pour lancer les tests: <span style="font-style: italic;">phpunit
+--verbose tests/PersonneTest.php</span>. Ca doit donner un écran de ce
+type:</p>
+
+<p><img style="width: 737px; height: 497px;" alt="capture" src="TP4_fichiers/c1.png"><br>
+</p>
+
+<p><font color="#990000"><font color="#000040"><font color="#990000"> B
+<font color="#000040"><br>
+</font></font></font></font></p>
+
+<p>En se basant sur la méthode <span style="font-style: italic;">irradier</span>,
+complétez votre cas de test (plusieurs méthodes) afin de couvrir
+l'ensemble de
+ses fonctionnalités. Combien avez-vous écris de méthodes?<br>
+</p>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">C <font color="#000040"><br>
+</font></font></font></font></font></font><br>
+
+Normalement, étant donné que vous êtes très fort et que ce n'est pas
+votre premier TP, vous avez bien sur utilisé une fixure (méthode setUp
+au minima). Vous pouvez également utiliser <a href="https://code.google.com/p/hamcrest/wiki/TutorialPHP">Hamcrest</a>
+pour PHP (ce serait mieux mais va vous prendre un peu plus de temps
+pour l'installer, docn pour ceux qui ont fait du PHP avant)<br>
+
+<a href="http://phpunit.de/manual/current/en/fixtures.html">voir ici</a><br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">D <font color="#000040"><br>
+<br>
+</font></font></font></font></font></font>Ajoutez des dépendances entre
+certaines de vos méthodes pour que si un cas de test ne passe pas, ceux
+qui en dépendent sont annulés. Celà se fait avec l'annotation <span style="font-style: italic;">@depends</span>.<br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">E</font><br>
+<br>
+PHPunit offre l'ooportunité d'utiliser un <a href="http://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers"><span style="font-style: italic;">dataprovider</span></a> afin de factoriser
+plusieurs tests identiques construits avec des données différentes.<br>
+Créez un test pour la méthode irradier avec les valeurs de pied 2,3,5.
+(On attend respectivement 3,4,5). En php, on utilise rarement des
+getter setter, pied est ici public.<br>
+<br>
+</font></font></font></font><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">F</font></font></font></font></font><br>
+
+<br>
+
+La méthode <span style="font-style: italic;">marche</span> retourne
+une
+exception. Créez un test permettant de vérifier que l'exception peut
+être levée et que le message d'erreur retourné est 'trop de pieds'. Il
+y a deux possibilités: du code ou une annotation.<br>
+
+<h2><font><font><font><font><font><font><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">2.</font><font color="#990000"> Sorties</font></font></font></font></font></font></font></font></font></font></font></font></font></h2>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+
+Les programmes PHP produisent ("souvent") du code HTML en sortie. C'est
+ici le cas pour la classe Personne et sa méthode <span style="font-style: italic;">manger</span>. Pour tester la sortie, il
+est possible d'utiliser la méthode de Phpunit <span style="font-style: italic;">expectOutputString('chaine&nbsp; attendue')</span>.
+Faites un test pour la méthode manger.<br>
+
+<br>
+
+Comme vous le voyez, ca fonctionne bien ici, MAIS il serait bien
+fastidieux de tester des sites Web de cette façon. C'est fait avec
+d'autres outils que nous verrons, tels que Selenium.<br>
+
+<br>
+
+<h2><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">3.</font><font color="#990000"> Suites de test<br>
+</font></font></font></font></font></font></font></h2>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+
+Créez une classe Etudiant en vous basant sur la classe Personne. Puis
+créez un cas de test simple pour étudiant.<br>
+
+Vous souhaitez lancer, d'une façon simple, l'exécution de tous vos
+tests. Comment faire ?<br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+
+Il vous ai demandé de créer une suite de test composée des 2 cas de
+test précédants. Pour cela, il faut créer un fichier XML déclarant
+les&nbsp; 2 cas de test. Voici un exemple (tiré de la doc):<br>
+
+<br>
+
+<span style="font-style: italic;">&lt;phpunit&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp; &lt;testsuites&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;testsuite
+name="money"&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;file&gt;tests/IntlFormatterTest.php&lt;/file&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;file&gt;tests/MoneyTest.php&lt;/file&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;file&gt;tests/CurrencyTest.php&lt;/file&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;/testsuite&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&nbsp; &lt;/testsuites&gt;</span><br style="font-style: italic;">
+
+<span style="font-style: italic;">&lt;/phpunit&gt;</span><br style="font-style: italic;">
+
+<br>
+
+Pour lancer l'exécution de la suite de test, il faut utiliser l'option
+de ligne de commande <span style="font-style: italic;">--testsuite
+&lt;pattern&gt;</span>.<br>
+
+<br>
+
+<h2><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">4.</font><font color="#990000"> Couverture de code<br>
+</font></font></font></font></font></font></font></h2>
+
+<br>
+
+Phpunit permet également d'obtenir un rapport sur la couverture de
+code. Pour créer ce rapport, il faut utiliser l'option de ligne de
+commande <span style="font-style: italic;">--coverage-html ./report</span>.
+Le rapport en HTML sera placé dans le répertoire report. Il est
+possible de créer des rapports en XML CSV, etc.<br>
+
+Pour ce cela fonctionne, il faut aussi donner une "whitelist" qui indique les fichiers à couvrir. Voici <a href="https://phpunit.de/manual/current/en/code-coverage-analysis.html" target="_blank">dans la doc</a><br>
+
+Voici un exemple:<br>
+
+<img style="width: 1140px; height: 746px;" alt="captures" src="TP4_fichiers/c2.png"><br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+
+Calculez la couverture de code que vous obtenez avec la classe
+Personne. Analysez ce rapport (besoin de plus ???)<br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">B</font></font></font></font></font><br>
+
+<br>
+
+Complétez vos tests pour obtenir une couverture de 100%.<br>
+
+<br>
+</body></html>

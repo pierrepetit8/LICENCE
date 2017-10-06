@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title></title>
+
+
+  
+
+  
+  
+  <meta name="author" content="Sebastien SALVA">
+
+  
+  <meta name="generator" content="Bluefish 2.2.6"></head><body>
+<b>TP cycle de vie des applications</b><br>
+
+S. Salva<br>
+
+<br>
+
+<div align="center">
+<table cellspacing="2" cellpadding="2" border="1">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <h1 align="center"><font color="#800040">TP5 Selenium IDE<br>
+      </font></h1>
+      <font color="#800040"> </font></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><font color="#990000"><br>
+</font></p>
+
+<h2><font color="#990000">1. Objectifs</font>
+</h2>
+
+<p>Effectuer des tests d'intégration d'applications Web</p>
+
+<p>Savoir utiliser Selenium IDE, enregistrer des tests, compléter des
+tests, etc.<br>
+</p>
+
+<p><br>
+</p>
+
+<h2><font color="#990000">2. Installation et premier test<br>
+</font></h2>
+
+<a href="http://docs.seleniumhq.org/docs/">Selenium</a> est une suite
+logicielle permet d'effectuer des tests d'intégration d'applications
+Web. Selenium est basé sur Javascript et permet de manipuler le contenu
+d'une page (complétion des champs, click sur bouttons, etc.),
+d'effectuer des assertions sur des pages Web. Selenium est donc capable
+de manipuler la structure DOM (vous connaissez oui non ? si non,
+demandez !!), qu'elle soit connue (utilisation d'identifieurs
+statiques) ou non. 2 frameworks sont possibles: <br>
+
+<ol>
+
+  <li>Selenium IDE qui est un plugin Firefox qui permet de faire du
+record and replay et de compléter avec des assertions les cas de tests
+enregistrés. Il est également possible de rentrer des cas de test
+complets à la main.</li>
+  <li>Selenium Webdriver qui permet de construire des cas de test uniquement
+via du code, code qui peut être écrit en Java, en PHP, etc. <br>
+  </li>
+</ol>
+
+Le fonctionnement de Selenium a été repris par d'autres outils,&nbsp;
+comme par exemple <a href="https://code.google.com/p/robotium/">Robotium</a>
+pour tester des applications&nbsp; Web (c'est exactement le même
+concept).<br>
+
+<br>
+
+Dans ce TP, on va s'intéresser à Selenium IDE.<br>
+
+<br>
+
+<font color="#990000"> A <font color="#000040"><br>
+</font></font><br>
+
+Pour installer Selenium IDE, lancez Firefox, allez sur ce lien <a href="http://docs.seleniumhq.org/download/">http://docs.seleniumhq.org/download/</a>
+et téléchargez Selenium IDE. Après un redemarrage, vous
+aurez un nouveau boutton et&nbsp; un nouveau lien dans  le 
+menu&nbsp; Outils. Lancez
+Selenium, vous obtenez cette fenêtre :<br>
+
+<br>
+
+<img style="width: 542px; height: 634px;" alt="capture" src="TP5_fichiers/c1.png"><br>
+
+L'interface n'est pas très complexe. Si toutefois vous avez un doute
+sur un onglet ou boutton, <a href="http://docs.seleniumhq.org/docs/02_selenium_ide.jsp#opening-the-ide">regardez
+la doc !!!!</a>
+<span style="font-style: italic;"></span>
+<p><font color="#990000"><font color="#000040"><font color="#990000"> B
+<font color="#000040"><br>
+</font></font></font></font></p>
+
+<br>
+<p>Nous allons créer un premier cas de test.&nbsp; Faites:&nbsp; <span style="font-style: italic;">click droit</span> <span style="font-style: italic;">nouveau&nbsp; test</span> . Lancez l'enregistrement en cliquant sur le boutton rouge. <br>
+</p>
+<p>Puis sur firefox, entrez <span style="font-style: italic;">www.google.fr</span> et dans le texte "votre nom prénom". Revenez sur Selenium IDE et arretez l'enregistrement (click boutton rouge). <br>
+</p>
+<p>Vous pouvez ensuite rejouer le test, à différentes vitesses.</p>
+<p>Le cas de test est donné sous forme de tableau et son source est donné dans l'onglet Source:</p>
+<br>
+<p><img style="width: 542px; height: 634px;" alt="capture" src="TP5_fichiers/c2.png"></p>
+On a ici quelques commandes:<br>
+<ul>
+  <li>open permet d'ouvrir un document donné en argument</li>
+  <li>type indique que l'on ajoute du texte dans un élément HTML</li>
+  <li>click correspond à l'action click sur un élément</li>
+</ul>
+La liste des commandes "classiques" est donnée <a href="http://docs.seleniumhq.org/docs/02_selenium_ide.jsp#commonly-used-selenium-commands">là</a>.<br>
+<br>
+Les commandes sont de type:<br>
+<ul>
+  <li>actions: telles que click, select. Ces actions ont souvent un suffixe <span style="font-style: italic;">"AndWait" </span>pour ajouter une attente sur l'action (ex: attendre qu'une page se charge ),</li>
+  <li>accesseurs: actions sur l'état de l'application et sur des variables (stockage),</li>
+  <li>assertion (et vérifications) <br>
+  </li>
+</ul>
+
+Les éléments sont identifiés via des Locators (DOM, Xpath, CSS, etc.) : voir <a href="https://newcircle.com/bookshelf/selenium_tutorial/locators">ici</a>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">C <font color="#000040"><br>
+</font></font></font></font></font></font><br>
+Le test précédent n'est pas réellement un test. Il manque les assertions !!<br>
+Il est possible de les ajouter à la main, MAIS il est également
+possible, pendant l'enregistrement, de faire un click droit et
+d'utiliser les commandes offertes.<br>
+Refaites un cas de test, sur le site local <a href="http://hina/%7Esesalva/SDTA-2014">SDTA</a>.<br>
+Sur chaque page, vous pouvez faire un click droit, pour avoir une liste de commandes disponibles<br>
+<img style="width: 622px; height: 406px;" alt="C3" src="TP5_fichiers/c3.png"><img style="width: 476px; height: 489px;" alt="c4" src="TP5_fichiers/c4.png"><br>
+Vous pouvez également surligner un élément précis d'une page et faire click droit pour avoir des commandes liées à cet élément.<br>
+Ici, je vous demande de créer un cas de test pour: <br>
+<ol>
+  <li>ouvrir le site, <br>
+  </li>
+  <li>vérifier que le titre est bien '1st Symposium on Digital Trust in Auvergne",</li>
+  <li>vérifiez que l'image du limos est présente (<span style="font-style: italic;">assertion assertElementPresent</span>)<br>
+  </li>
+  <li>aller sur l'onglet call for paper</li>
+  <li>vérifier que le contenu de la page contient la phrase "Security Policies".</li>
+</ol>
+
+<h2><font><font><font><font><font><font><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">2.</font><font color="#990000"> Faire des cas de test plus complexes<br>
+</font></font></font></font></font></font></font></font></font></font></font></font></font></h2>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+Complétez le cas de test précédent pour vérifier si la première page contient "security pour les nuls" et si la deuxième page
+contient le mot "exposed" . Vous pouvez
+utiliser la commande <span style="font-style: italic;">assertText</span>. Il faut également utiliser des <a href="http://docs.seleniumhq.org/docs/02_selenium_ide.jsp#matching-text-patterns">expressions régulières</a>.<br>
+<br>
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">B</font></font></font></font></font><br>
+
+
+<br>
+Votre cas de test précédent doit retourner FAIL ("security pour les
+nuls" n'est pas dans la première page). A ce stade, le cas de test
+stoppe son exécution sans aller sur la deuxième page "Call for Paper". <br>
+On peut toutefois utiliser d'autres commandes, à la place des assert,
+pour vérifier des propriétés et continuer le test, en utilisant les
+commandes de la famille <span style="font-style: italic;">verify</span>.<br>
+Modifiez votre cas de test précédent en utilisant verifyText à la place
+de assertText. En relançant votre test, vous observerez qu'il
+s'exécutera jusqu'au bout.<br>
+
+<br>
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">C</font></font></font></font></font><br>
+
+
+
+<br>
+Implantez un nouveau cas de test permettant d'ouvrir l'onglet
+"Registration" (toujours sur le site local SDTA). Dans cette page, complétez le formulaire, cliquez sur
+register et vérifiez que la page suivante contient "registration
+complete".<br>
+Observez le source du cas de test: chaque élément du formulaire est
+identifié par son nom ou son identifiant. (name=*** ou id=***).<br>
+<br>
+Il est possible aussi d'employer DOM pour faire référence à des éléments
+de page. C'est dynamique (auparavant statique) et permet plus de
+flexibilité. <br>
+Par exemple, dans le formulaire précédent,&nbsp; au lieu d'utiliser&nbsp; <span style="font-style: italic;">name=nom</span>, on peut utiliser <span style="font-style: italic;">document.forms[0].elements[1]</span>.<br>
+<br>
+Utilisez <a href="http://www.w3.org/DOM/">DOM</a> sur tout le cas de test<br>
+<br>
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">D</font></font></font></font></font><br>
+
+
+
+
+<br>
+On veut maintenant vérifier que si l'on effectue une registration
+(comme précédent) puis click sur le lien "administration"
+(login:licence, pass:licence), la page affichée contient bien la
+personne enregistrée (test sur son nom)<br>
+Faites le cas de test.<br>
+<br>
+Le problème est que ce cas de test est statique, il faut en créer un
+pour chaque enregistrement entrer le nom et vérifier que le nom entré
+est dans le deuxième page (bof bof). Utilisons des variables pour
+alléger le code et génériser.<br>
+<br>
+Une variable se définit comme suit:<br>
+<span style="font-style: italic;">&lt;tr&gt;</span><br>
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;store&lt;/td&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;contenu variable&lt;/td&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;test&lt;/td&gt;</span><br>
+<span style="font-style: italic;">&lt;/tr&gt;<br>
+<br>
+</span>et s'utilise ensuite comme cela ${test}, par exemple<br>
+<span style="font-style: italic;">&lt;tr&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;verifyText&lt;/td&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;name=nom&lt;/td&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &lt;td&gt;${test}&lt;/td&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&lt;/tr&gt;</span><br style="font-style: italic;">
+<br>
+Modifiez votre cas de test précédent pour stocker dans une variable&nbsp; le nom entré dans la page <span style="font-style: italic;">registration</span> et vérifier que ce nom est présent dans la page <span style="font-style: italic;">administration</span>.<br>
+
+<h2><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">3.</font><font color="#990000"> Suites de test<br>
+</font></font></font></font></font></font></font></h2>
+
+Si ce n'est pas encore fait, enregistrez vos cas de test. (<span style="font-style: italic;">click droit propriété</span>, donnez l'extension html).<br>
+Par défaut, l'ensemble des cas de test chargés sont dans l'onglet
+gauche, vous pouvez lancez un cas de test ou bien tous les cas de test.
+<br>
+Mais vous pouvez aussi construire une suite de test, comme dans l'exemple donné ici: <br>
+<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Test Suite Function Tests - Priority 1&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;table&gt;<br>
+&nbsp; &lt;tr&gt;&lt;td&gt;&lt;b&gt;Suite Of Tests&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &lt;tr&gt;&lt;td&gt;&lt;a href="./cas1.html"&gt;Login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &lt;tr&gt;&lt;td&gt;&lt;a href="./cas2.html"&gt;Test Searching for Values&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp; &lt;tr&gt;&lt;td&gt;&lt;a href="./cas3.html"&gt;Test Save&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+
+<br>
+
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+<br>
+
+Créez une suite de test pour vos cas de test précédents.<br>
+<br>
+<h2><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">4.</font><font color="#990000"> Test des attributs des éléments de page<br>
+</font></font></font></font></font></font></font></h2>
+Selenium offre la possiblité de tester l'état de propriétés d'éléments
+de pages (le style, le href, le title, etc.) AssertAttribute (ou
+VerifyAttribute) permet de construire les assertions.<br>
+<br>
+<font color="#990000"><font color="#000040"><font color="#990000"><font color="#000040"><font color="#990000">A</font></font></font></font></font><br>
+
+
+<br>
+
+
+Créez un cas de test permettant de vérifier que le lien en bas de page pointe vers <span style="font-style: italic;">index.php?page=admin</span> (voir doc!)<br>
+<br>
+
+<h2><font color="#990000">5. extensions</font>
+</h2>
+
+<p>Selenium accepte des extensions  qui offrent de nouveaux mots clés pour per exemple faire des boucles de test.</p>
+
+<p>Par exemple vous avez l'extension <a href="https://github.com/darrenderidder/sideflow">sideflow</a> qui permet seulement de d'implémenter des boucles, ou <a href="http://refactoror.wikia.com/wiki/Selblocks_Reference">Selblocks</a> qui est plus riche car elle permet de faire des conditions, de manipuler de l'XML etc.</p><p> 
+
+</p><p>Téléchargez l'une des extensions puis faites un cas de test pour 
+cliquer sur les 6 liens et vérifier que le titre de la page obtenu est 
+bien "1st Symposium on Digital Trust in Auvergne".</p><p>   
+
+</p><p>Toujours sur le site SDTA, on veut tester que le click de tous 
+les onglets amène à une page de SDTA. Au lieu de tester onglet par 
+onglet, il vous ai bien sûr demandé d'utiliser une boucle.</p>
+
+
+
+
+
+
+</body></html>

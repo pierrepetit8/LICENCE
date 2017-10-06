@@ -13,6 +13,7 @@ import metier.Ciel;
  * @author petit
  */
 public class FabriqueCielVM {
+    
      public static CielVM creerCiel(Ciel c) {
         return new CielVM(c);
     }
