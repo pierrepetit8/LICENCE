@@ -61,11 +61,12 @@ public class ArcVM implements Serializable, PropertyChangeListener{
     public Arc modele;
     
     public ArcVM(Arc modele) {
+        modele.addPropertyChangeListener(this);
         obsArc = FXCollections.observableArrayList();
         listCouleur.set(obsArc);
         this.modele = modele;
         setNomArc(modele.getNom());
-        modele.addPropertyChangeListener(this);
+        
         
         nomArc.addListener(new ChangeListener<String>() {
             @Override

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author pipetit1
  */
-public class Arc implements Serializable{
+public class Arc implements Serializable {
     public ArrayList<Couleur> listeCouleur = new ArrayList<>();
  
     private String nom;
@@ -53,6 +53,9 @@ public class Arc implements Serializable{
      * @param listener
      */
     public void addPropertyChangeListener(PropertyChangeListener listener) {
+        if(listener == null ){
+            System.out.println("eeeeeeeeeeeeeeeeeeee");
+        }
         propertyChangeSupport.addPropertyChangeListener(listener);
     }
 

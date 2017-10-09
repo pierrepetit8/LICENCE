@@ -6,6 +6,7 @@
 package VM;
 
 import VM.ArcVM;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import javafx.beans.property.ListProperty;
@@ -34,10 +35,19 @@ public class CielVM implements Serializable{
         return listPropertyCiel;
     }
     public Ciel ciel;
-    public CielVM(Ciel ciel) {
+    public CielVM(Ciel ciel) throws IOException, FileNotFoundException, ClassNotFoundException {
+        
         cielObs = FXCollections.observableArrayList();
         listPropertyCielProperty().set(cielObs);
         this.ciel = ciel;
+        
+            Ciel newCiel = (Ciel) Sauvegarde.loadCiel("FICHIERSAVE.bin");
+            if(newCiel != null) {
+                newCiel.getListeArc().stream().forEach((a) -> {
+                    cielObs.add(new ArcVM(a));
+                });
+            }
+        
        
     }
     public Ciel getInstance() {
