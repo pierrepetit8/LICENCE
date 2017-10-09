@@ -23,7 +23,13 @@ public class RecetteVM {
         public StringProperty descriptionProperty() { return description; }
     public Recette metier;
     public RecetteVM(Recette recette) {
-        this.metier = recette;    
+        this.metier = recette;
+        setDescription(recette.getDescription());
+    }
+
+    @Override
+    public String toString() {
+        return metier.getDescription();
     }
     
 }

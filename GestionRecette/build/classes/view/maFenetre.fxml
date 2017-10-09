@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MaFenetreController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MaFenetreController">
    <children>
       <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
-         <left>
-            <ListView fx:id="listViewRecette" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </left>
          <center>
-            <Text fx:id="textDescription" strokeType="OUTSIDE" strokeWidth="0.0" BorderPane.alignment="CENTER" />
+            <Text fx:id="textDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="test" BorderPane.alignment="CENTER" />
          </center>
+         <left>
+            <VBox prefHeight="400.0" prefWidth="179.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ListView fx:id="listViewRecette" prefHeight="284.0" prefWidth="179.0" />
+                  <Button mnemonicParsing="false" onAction="#ajouterRecette" prefHeight="26.0" prefWidth="180.0" text="Ajouter Recette" />
+                  <Button mnemonicParsing="false" onAction="#sauvegarder" prefHeight="20.0" prefWidth="181.0" text="Sauver" />
+               </children>
+            </VBox>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>
