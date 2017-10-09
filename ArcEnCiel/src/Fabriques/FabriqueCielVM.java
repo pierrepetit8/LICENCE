@@ -17,6 +17,7 @@ import metier.Ciel;
  * @author petit
  */
 public class FabriqueCielVM {
+
      public static CielVM creerCiel(Ciel c) throws IOException, FileNotFoundException {
          try {
              return new CielVM(c);
