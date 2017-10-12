@@ -103,7 +103,7 @@ public class MaFenetreController {
             }
             
         });
-        c.enregistrerCiel("FICHIERSAVE.bin");
+        
         
     }    
     @FXML
@@ -119,6 +119,7 @@ public class MaFenetreController {
     
     @FXML
     public void ajouterCouleur() {
+        vbox.getChildren().clear();
         System.out.println("dfsqfsds");
         double r = Double.valueOf(field1.getText());
         double v = Double.valueOf(field1.getText());
@@ -128,7 +129,10 @@ public class MaFenetreController {
         //listViewArc.getSelectionModel().selectedItemProperty().getValue().ajouterCouleur(cvm);
         listViewArc.getSelectionModel().getSelectedItems().get(0).ajouterCouleur(cvm);
     }
-    
+    @FXML 
+    public void sauvegarder() throws IOException {
+        c.enregistrerCiel("FICHIERSAVE.bin");
+    }
     
     
 }

@@ -31,9 +31,9 @@ public class Sauvegarde {
         }  
     }
     
-    public static void loadCiel(String nomFichier) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static Serializable loadCiel(String nomFichier) throws FileNotFoundException, IOException, ClassNotFoundException {
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomFichier))) {
-            Ciel c = (Ciel) ois.readObject(); 
+            return (Serializable) ois.readObject(); 
             
             
         } 

@@ -6,6 +6,10 @@
 package Fabriques;
 
 import VM.CielVM;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import metier.Ciel;
 
 /**
@@ -13,8 +17,13 @@ import metier.Ciel;
  * @author petit
  */
 public class FabriqueCielVM {
-    
-     public static CielVM creerCiel(Ciel c) {
-        return new CielVM(c);
+
+     public static CielVM creerCiel(Ciel c) throws IOException, FileNotFoundException {
+         try {
+             return new CielVM(c);
+         } catch (ClassNotFoundException ex) {
+             Logger.getLogger(FabriqueCielVM.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return null;
     }
 }

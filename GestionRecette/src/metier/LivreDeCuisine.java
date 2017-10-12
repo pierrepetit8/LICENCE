@@ -5,6 +5,7 @@
  */
 package metier;
 
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @author pipetit1
  */
 public class LivreDeCuisine implements Serializable{
+    
     private List<Recette> listeRecette;
 
     public List<Recette> getListeRecette() {
@@ -24,6 +26,7 @@ public class LivreDeCuisine implements Serializable{
         listeRecette = new ArrayList();
     }
     public void ajouterRecette(Recette r) {
+        //propertyChangeSupport.fireIndexedPropertyChange(PROP_LIST, listeRecette.indexOf(r), null, r);
         listeRecette.add(r);
     }
     public LivreDeCuisine getInstance() {
