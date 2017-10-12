@@ -5,6 +5,8 @@
  */
 package metier;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 
 /**
@@ -12,18 +14,54 @@ import java.io.Serializable;
  * @author pipetit1
  */
 public class Recette implements Serializable {
+   
     private String description;
 
+    public static final String PROP_DESCRIPTION = "description";
+
+    /**
+     * Get the value of description
+     *
+     * @return the value of description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Set the value of description
+     *
+     * @param description new value of description
+     */
     public void setDescription(String description) {
+        String oldDescription = this.description;
         this.description = description;
+        //propertyChangeSupport.firePropertyChange(PROP_DESCRIPTION, oldDescription, description);
     }
+
+    private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
+    /**
+     * Add PropertyChangeListener.
+     *
+     * @param listener
+     */
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    /**
+     * Remove PropertyChangeListener.
+     *
+     * @param listener
+     */
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
     
     public Recette(String description) {
-        this.description = description;
+        setDescription(description);
     }
     
     public Recette getInstance() {

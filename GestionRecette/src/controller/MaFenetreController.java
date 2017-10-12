@@ -38,9 +38,17 @@ public class MaFenetreController {
     private LivreDeCuisineVM livre;
     private LivreDeCuisine livreLoad;
     public void initialize() throws IOException, FileNotFoundException, ClassNotFoundException {
-        livreLoad = (LivreDeCuisine) SerializerLoader.load("sauvegarde2.bin");
+        try {
+            livreLoad = (LivreDeCuisine) SerializerLoader.load("sauvegarde2.bin");
+        } catch (Exception e) {
+            System.out.println("pas de fichier sauvegarde");
+        }
+        
+            
+        
         if(livreLoad != null) {
-            livre = new LivreDeCuisineVM(livreLoad);
+            livre = new LivreDeCuisineVM(FabriqueLivreDeCuisine.creer());
+            livreLoad.getListeRecette().forEach((recette) -> livre.ajouterRecette(FabriqueRecetteVM.creer(recette)));
             livreLoad.getListeRecette().forEach((recette) -> System.out.println(recette.getDescription()));
         }else {
             livre = new LivreDeCuisineVM(FabriqueLivreDeCuisine.creer());

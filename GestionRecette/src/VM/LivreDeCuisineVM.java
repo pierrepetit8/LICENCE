@@ -5,6 +5,8 @@
  */
 package VM;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Collection;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -27,13 +29,18 @@ public class LivreDeCuisineVM {
         
     public LivreDeCuisine metier;
     public LivreDeCuisineVM(LivreDeCuisine livre) {
+        
         obsListeRecette = FXCollections.observableArrayList();
         this.metier  = livre;
         listeRecetteProperty().set(obsListeRecette);
+        
     }
     
     public void ajouterRecette(RecetteVM recette) {
         obsListeRecette.add(recette);
         metier.ajouterRecette(recette.metier);
     }
+
+    
+    
 }
