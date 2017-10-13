@@ -20,6 +20,7 @@
                   <ListView fx:id="listViewRecette" prefHeight="284.0" prefWidth="179.0" />
                   <Button mnemonicParsing="false" onAction="#ajouterRecette" prefHeight="26.0" prefWidth="180.0" text="Ajouter Recette" />
                   <Button mnemonicParsing="false" onAction="#sauvegarder" prefHeight="20.0" prefWidth="181.0" text="Sauver" />
+                  <Button mnemonicParsing="false" prefHeight="18.0" prefWidth="186.0" text="Retirer" />
                </children>
             </VBox>
          </left>

@@ -36,7 +36,7 @@ public class Recette implements Serializable {
     public void setDescription(String description) {
         String oldDescription = this.description;
         this.description = description;
-        //propertyChangeSupport.firePropertyChange(PROP_DESCRIPTION, oldDescription, description);
+        propertyChangeSupport.firePropertyChange(PROP_DESCRIPTION, oldDescription, description);
     }
 
     private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);

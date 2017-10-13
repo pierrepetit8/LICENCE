@@ -49,7 +49,10 @@ public class MaFenetreController {
         
         if(livreLoad != null) {
             livre = new LivreDeCuisineVM(FabriqueLivreDeCuisine.creer());
-            livreLoad.getListeRecette().forEach((recette) -> livre.ajouterRecette(FabriqueRecetteVM.creer(recette)));
+            livreLoad.getListeRecette().forEach((recette) -> {
+                
+                livre.ajouterRecette(FabriqueRecetteVM.creer(FabriqueRecette.creer(recette.getDescription())));
+            });
             livreLoad.getListeRecette().forEach((recette) -> System.out.println(recette.getDescription()));
         }else {
             livre = new LivreDeCuisineVM(FabriqueLivreDeCuisine.creer());
@@ -84,4 +87,5 @@ public class MaFenetreController {
     public void sauvegarder() throws IOException {
         SerializerSaver.save("sauvegarde2.bin", livre.metier);
     }
+   
 }

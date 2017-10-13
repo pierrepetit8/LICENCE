@@ -1,0 +1,316 @@
+Ant-Version: Apache Ant 1.7.0
+Archiver-Version: Plexus Archiver
+Automatic-Module-Name: net.bytebuddy
+Bnd-LastModified: 1424352310155
+Build-Jdk: 1.6.0_34
+Build-Time: 2017-06-04 08:33
+Built-By: vagrant
+Bundle-ActivationPolicy: lazy
+Bundle-Category: jni
+Bundle-Classpath: .
+Bundle-Copyright: Copyright (c) 2008-2017 Mort Bay Consulting Pty. Ltd
+ .
+Bundle-Description: YAML 1.1 parser and emitter for Java
+Bundle-DocURL: http://www.eclipse.org/jetty
+Bundle-License: LICENSE.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: SnakeYAML
+Bundle-NativeCode:  com/sun/jna/win32-x86/jnidispatch.dll; processor=x
+ 86;osname=win32, com/sun/jna/win32-x86-64/jnidispatch.dll; processor=
+ x86-64;osname=win32, com/sun/jna/w32ce-arm/jnidispatch.dll; processor
+ =arm;osname=wince,  com/sun/jna/sunos-x86/libjnidispatch.so; processo
+ r=x86;osname=sunos, com/sun/jna/sunos-x86-64/libjnidispatch.so; proce
+ ssor=x86-64;osname=sunos, com/sun/jna/sunos-sparc/libjnidispatch.so; 
+ processor=sparc;osname=sunos, com/sun/jna/sunos-sparcv9/libjnidispatc
+ h.so; processor=sparcv9;osname=sunos,  com/sun/jna/aix-ppc/libjnidisp
+ atch.a; processor=ppc;osname=aix, com/sun/jna/aix-ppc64/libjnidispatc
+ h.a; processor=ppc64;osname=aix,  com/sun/jna/linux-ppc/libjnidispatc
+ h.so; processor=ppc;osname=linux, com/sun/jna/linux-ppc64/libjnidispa
+ tch.so; processor=ppc64;osname=linux, com/sun/jna/linux-x86/libjnidis
+ patch.so; processor=x86;osname=linux, com/sun/jna/linux-x86-64/libjni
+ dispatch.so; processor=x86-64;osname=linux, com/sun/jna/linux-arm/lib
+ jnidispatch.so; processor=arm;osname=linux, com/sun/jna/linux-ia64/li
+ bjnidispatch.so; processor=ia64;osname=linux,  com/sun/jna/freebsd-x8
+ 6/libjnidispatch.so; processor=x86;osname=freebsd, com/sun/jna/freebs
+ d-x86-64/libjnidispatch.so; processor=x86-64;osname=freebsd, com/sun/
+ jna/openbsd-x86/libjnidispatch.so; processor=x86;osname=openbsd, com/
+ sun/jna/openbsd-x86-64/libjnidispatch.so; processor=x86-64;osname=ope
+ nbsd,  com/sun/jna/darwin/libjnidispatch.jnilib; osname=macosx;proces
+ sor=x86;processor=x86-64;processor=ppc 
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.yaml.snakeyaml
+Bundle-Vendor: Eclipse Jetty Project
+Bundle-Version: 1.15.0
+Class-Path: xercesImpl.jar xml-apis.jar serializer.jar
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.yaml.snakeyaml;version="1.15",org.yaml.snakeyaml.c
+ omposer;version="1.15",org.yaml.snakeyaml.constructor;version="1.15",
+ org.yaml.snakeyaml.emitter;version="1.15",org.yaml.snakeyaml.error;ve
+ rsion="1.15",org.yaml.snakeyaml.events;version="1.15",org.yaml.snakey
+ aml.extensions.compactnotation;version="1.15",org.yaml.snakeyaml.intr
+ ospector;version="1.15",org.yaml.snakeyaml.nodes;version="1.15",org.y
+ aml.snakeyaml.parser;version="1.15",org.yaml.snakeyaml.reader;version
+ ="1.15",org.yaml.snakeyaml.representer;version="1.15",org.yaml.snakey
+ aml.resolver;version="1.15",org.yaml.snakeyaml.scanner;version="1.15"
+ ,org.yaml.snakeyaml.serializer;version="1.15",org.yaml.snakeyaml.toke
+ ns;version="1.15",org.yaml.snakeyaml.util;version="1.15"
+Extension-Name: javax.servlet
+Gradle-Version: 3.4
+Implementation-Build: tags/4.5.3-RC1/httpmime@r1779741; 2017-01-21 16:
+ 58:35+0100
+Implementation-Title: PhantomJS Driver (GhostDriver)
+Implementation-URL: http://hc.apache.org/httpcomponents-core-ga
+Implementation-Vendor: Eclipse.org - Jetty
+Implementation-Vendor-Id: org.glassfish
+Implementation-Version: 9.4.5.v20170502
+Import-Package: org.eclipse.jetty.io;version="[9.4.5,9.4.6)",org.eclip
+ se.jetty.util;version="[9.4.5,9.4.6)",org.eclipse.jetty.util.annotati
+ on;version="[9.4.5,9.4.6)",org.eclipse.jetty.util.component;version="
+ [9.4.5,9.4.6)",org.eclipse.jetty.util.log;version="[9.4.5,9.4.6)",org
+ .eclipse.jetty.util.ssl;version="[9.4.5,9.4.6)",org.eclipse.jetty.uti
+ l.thread;version="[9.4.5,9.4.6)",org.eclipse.jetty.websocket.api;vers
+ ion="[9.4.5,9.4.6)",org.eclipse.jetty.websocket.api.annotations;versi
+ on="[9.4.5,9.4.6)",org.eclipse.jetty.websocket.api.extensions;version
+ ="[9.4.5,9.4.6)",org.eclipse.jetty.websocket.api.util;version="[9.4.5
+ ,9.4.6)",org.eclipse.jetty.websocket.common;version="[9.4.5,9.4.6)",o
+ rg.eclipse.jetty.websocket.common.events;version="[9.4.5,9.4.6)",org.
+ eclipse.jetty.websocket.common.events.annotated;version="[9.4.5,9.4.6
+ )",org.eclipse.jetty.websocket.common.extensions;version="[9.4.5,9.4.
+ 6)",org.eclipse.jetty.websocket.common.frames;version="[9.4.5,9.4.6)"
+ ,org.eclipse.jetty.websocket.common.io;version="[9.4.5,9.4.6)",org.ec
+ lipse.jetty.websocket.common.io.payload;version="[9.4.5,9.4.6)",org.e
+ clipse.jetty.websocket.common.message;version="[9.4.5,9.4.6)",org.ecl
+ ipse.jetty.websocket.common.scopes;version="[9.4.5,9.4.6)",org.eclips
+ e.jetty.websocket.common.util;version="[9.4.5,9.4.6)"
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt,META-INF/NOTICE.txt
+ =NOTICE.txt
+Main-Class: org.openqa.grid.selenium.GridLauncherV3
+Manifest-Version: 1.0
+Originally-Created-By: Apache Maven Bundle Plugin
+Provide-Capability: osgi.serviceloader;osgi.serviceloader="org.eclipse
+ .jetty.http.HttpFieldPreEncoder"
+Require-Bundle: com.sun.jna;bundle-version="4.1.0"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Specification-Title: Java Native Access (JNA)
+Specification-Vendor: Oracle Corporation
+Specification-Version: 3.1
+Tool: Bnd-2.3.0.201405100607
+Url: http://www.eclipse.org/jetty
+X-Compile-Source-JDK: 1.6
+X-Compile-Target-JDK: 1.6
+
+Name: Build-Info
+Build-Revision: 6fbf3ec767
+Build-Time: 2017-09-27T16:15:40.131Z
+Build-User: shs
+Selenium-Version: 3.6.0   
+
+Name: java_cup/runtime/
+Comment: Runtime component of JCup 
+Implementation-Title: runtime 
+Implementation-URL: http://www.cs.princeton.edu/~appel/modern/java/CUP
+ / 
+Implementation-Vendor: Princeton University  
+Implementation-Version: 2.7.2
+Specification-Title: Runtime component of JCup
+Specification-Vendor: Princeton University 
+Specification-Version: 0.10k 
+
+Name: javax/xml/datatype/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.datatype
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: javax/xml/namespace/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.namespace
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: javax/xml/parsers/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.parsers
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: javax/xml/stream/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.stream
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Streaming API for XML (StAX) 1.0
+Specification-Vendor: BEA Systems, Inc.
+Specification-Version: 1.0
+
+Name: javax/xml/transform/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.transform
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: javax/xml/validation/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.validation
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: javax/xml/xpath/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: javax.xml.xpath
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+Specification-Title: Java API for XML Processing (JAXP) 1.4
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.4
+
+Name: org/apache/bcel/
+Comment: Byte Code Engineering Library 
+Implementation-Title: org.apache.bcel
+Implementation-URL: http://jakarta.apache.org/bcel
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+Specification-Title: Byte Code Engineering Library 
+Specification-Vendor: Markus Dahm 
+Specification-Version: 5.0 rc1 
+
+Name: org/apache/regexp/
+Comment: Java Regular Expression package 
+Implementation-Title: org.apache.regexp
+Implementation-URL: http://jakarta.apache.org/regexp
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+Specification-Title: Java Regular Expression package 
+Specification-Vendor: Apache Software Foundation 
+Specification-Version: 1.2
+
+Name: org/apache/xalan/
+Comment: Main Xalan engine implementing TrAX/JAXP
+Implementation-Title: org.apache.xalan
+Implementation-URL: http://xml.apache.org/xalan-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+Specification-Title: Java API for XML Processing
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.3
+
+Name: org/apache/xalan/xsltc/
+Comment: Main XSLTC engine implementing TrAX/JAXP
+Implementation-Title: org.apache.xalan.xsltc
+Implementation-URL: http://xml.apache.org/xalan-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+Specification-Title: Java API for XML Processing
+Specification-Vendor: Sun Microsystems Inc.
+Specification-Version: 1.3
+
+Name: org/apache/xerces/impl/Version.class
+Comment: Xerces-J 2.11.0
+Implementation-Title: org.apache.xerces.impl.Version
+Implementation-URL: http://xerces.apache.org/xerces2-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.11.0
+
+Name: org/apache/xerces/xni/
+Comment: Xerces Native Interface
+Implementation-Title: org.apache.xerces.xni
+Implementation-URL: http://xerces.apache.org/xerces2-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.2
+Specification-Title: Xerces Native Interface
+Specification-Vendor: Apache Software Foundation
+Specification-Version: 1.2
+
+Name: org/apache/xml/
+Comment: DTM implementation and utilities
+Implementation-Title: org.apache.xml
+Implementation-URL: http://xml.apache.org/xalan-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+
+Name: org/apache/xml/serializer/
+Comment: Serializer to write out XML, HTML etc. as a stream of charact
+ ers from an input DOM or from input SAX events.
+Implementation-Title: org.apache.xml.serializer
+Implementation-URL: http://xml.apache.org/xalan-j/usagepatterns.html
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+Specification-Title: XSL Transformations (XSLT), at http://www.w3.org/
+ TR/xslt
+Specification-Vendor: W3C Recommendation 16 November 1999
+Specification-Version: 1.0
+
+Name: org/apache/xml/serializer/utils/
+Comment: Utilities used internally by the Serializer. Not for external
+  use.
+Implementation-Title: org.apache.xml.serializer.utils
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+
+Name: org/apache/xmlcommons/Version
+Comment: XmlCommonsExternal for http://xml.apache.org/ subproject's us
+ e
+Implementation-Title: org.apache.xmlcommons.Version
+Implementation-URL: http://xml.apache.org/commons/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 1.4.01
+
+Name: org/apache/xpath/
+Comment: XPath engine
+Implementation-Title: org.apache.xpath
+Implementation-URL: http://xml.apache.org/xalan-j/
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.7.2
+
+Name: org/w3c/dom/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: org.w3c.dom
+Implementation-URL: http://www.w3c.org/DOM/
+Implementation-Vendor: World Wide Web Consortium
+Implementation-Version: 1.0
+Specification-Title: Document Object Model (DOM) Level 3 Core
+Specification-Vendor: World Wide Web Consortium
+Specification-Version: 1.0
+
+Name: org/w3c/dom/ls/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: org.w3c.dom.ls
+Implementation-URL: http://www.w3c.org/DOM/
+Implementation-Vendor: World Wide Web Consortium
+Implementation-Version: 1.0
+Specification-Title: Document Object Model (DOM) Level 3 Load and Save
+Specification-Vendor: World Wide Web Consortium
+Specification-Version: 1.0
+
+Name: org/xml/sax/
+Comment: xml-commons for http://xml.apache.org/ subproject's use
+Implementation-Title: org.xml.sax
+Implementation-URL: http://www.saxproject.org/
+Implementation-Vendor: David Megginson
+Implementation-Version: 2.0.2
+Specification-Title: Simple API for XML
+Specification-Vendor: David Megginson
+Specification-Version: 2.0.2 (sax2r3)
+

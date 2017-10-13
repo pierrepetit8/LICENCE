@@ -1,0 +1,22 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import test.ExoTP;
+
+public class ExoTPTest {
+
+	@Before
+	public void setUp() {
+		ExoTP exo = new ExoTP();
+	}
+	
+	@Test
+	public void test() {
+		
+	}
+
+}

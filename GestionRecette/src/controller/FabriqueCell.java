@@ -22,10 +22,8 @@ public class FabriqueCell extends ListCell<RecetteVM> {
     protected void updateItem(RecetteVM item, boolean empty) {
         super.updateItem(item, empty);
         if(item != null) {
-           textProperty().bind(Bindings.format(format, args))
-            /*textProperty().bind(    Bindings.createStringBinding(
-                    () -> item.getDescription().concat(item.getDescription()), item.descriptionProperty()));*/
-          
+           textProperty().bind(Bindings.format("%.10s", item.descriptionProperty()));
+            
         }
     }
     
